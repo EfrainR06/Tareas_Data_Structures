@@ -1,3 +1,4 @@
+//Efrain Retana Segura UNA
 //Primera tarea de Estructura de Datos
 
 // Construya un programa C++ que permite utilizar un estructura de datos
