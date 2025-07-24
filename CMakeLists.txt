@@ -3,6 +3,11 @@ project(TareasDatos)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(TareasDatos main.cpp
-        Tarea_tipo_guardados.cpp
-        Tarea_argc_argv.cpp)
+add_executable(TareasDatos
+        punto.cpp
+        punto.h
+        mainPunto.cpp
+        rectangulo.cpp
+        rectangulo.h
+        Circulo.cpp
+        Circulo.h)
