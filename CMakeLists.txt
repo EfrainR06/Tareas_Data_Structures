@@ -10,4 +10,8 @@ add_executable(TareasDatos
         rectangulo.cpp
         rectangulo.h
         Circulo.cpp
-        Circulo.h)
+        Circulo.h
+        fecha.cpp
+        fecha.h
+        tiempo.cpp
+        tiempo.h)

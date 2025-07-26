@@ -1,9 +1,11 @@
 //Efrain Retana Segura
 
 #include <stdio.h>
+#include <stdlib.h>
 #include "punto.h"
 #include "rectangulo.h"
 #include "Circulo.h"
+#include "fecha.h"
 //Ejercicio documento 0.1
 // int main() {
 //     Punto* a = crear_punto(1.0, 2.0);
@@ -67,3 +69,30 @@
 //
 //     return 0;
 // }
+
+//Ejercicio 3 Fecha
+
+// int main() {
+//     Fecha* f1 = crear_fecha(15, 6, 2024);
+//     Fecha* f2 = crear_fecha(10,7, 2023);
+//
+//     printf("Fecha 1: ");
+//     imprimir_fecha(f1);
+//
+//     printf("Fecha 2: ");
+//     imprimir_fecha(f2);
+//
+//     int cmp = comparar_fecha(f1, f2);
+//     if(cmp == 0)
+//         printf("Las fechas son iguales.\n");
+//     else if (cmp > 0)
+//         printf("Fecha 1 es mayor que Fecha 2.\n");
+//     else
+//         printf("Fecha 1 es menor que Fecha 2.\n");
+//
+//     free(f1);
+//     free(f2);
+//     return 0;
+// }
+
+
