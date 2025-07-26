@@ -14,4 +14,12 @@ add_executable(TareasDatos
         fecha.cpp
         fecha.h
         tiempo.cpp
-        tiempo.h)
+        tiempo.h
+        fraccion.cpp
+        fraccion.h
+        vector3d.cpp
+        vector3d.h
+        recta.cpp
+        recta.h
+        empleado.cpp
+        empleado.h)
