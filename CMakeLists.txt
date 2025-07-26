@@ -4,22 +4,22 @@ project(TareasDatos)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(TareasDatos
-        punto.cpp
-        punto.h
-        mainPunto.cpp
-        rectangulo.cpp
-        rectangulo.h
-        Circulo.cpp
-        Circulo.h
-        fecha.cpp
-        fecha.h
-        tiempo.cpp
-        tiempo.h
-        fraccion.cpp
-        fraccion.h
-        vector3d.cpp
-        vector3d.h
-        recta.cpp
-        recta.h
-        empleado.cpp
-        empleado.h)
+        "SECOND HOMEWORK/punto.cpp"
+        "SECOND HOMEWORK/punto.h"
+        "SECOND HOMEWORK/mainPunto.cpp"
+        "SECOND HOMEWORK/rectangulo.cpp"
+        "SECOND HOMEWORK/rectangulo.h"
+        "SECOND HOMEWORK/Circulo.cpp"
+        "SECOND HOMEWORK/Circulo.h"
+        "SECOND HOMEWORK/fecha.cpp"
+        "SECOND HOMEWORK/fecha.h"
+        "SECOND HOMEWORK/tiempo.cpp"
+        "SECOND HOMEWORK/tiempo.h"
+        "SECOND HOMEWORK/fraccion.cpp"
+        "SECOND HOMEWORK/fraccion.h"
+        "SECOND HOMEWORK/vector3d.cpp"
+        "SECOND HOMEWORK/vector3d.h"
+        "SECOND HOMEWORK/recta.cpp"
+        "SECOND HOMEWORK/recta.h"
+        "SECOND HOMEWORK/empleado.cpp"
+        "SECOND HOMEWORK/empleado.h")
