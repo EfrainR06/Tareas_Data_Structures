@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD 20)
 add_executable(TareasDatos
         "SECOND HOMEWORK/punto.cpp"
         "SECOND HOMEWORK/punto.h"
-        "SECOND HOMEWORK/mainPunto.cpp"
         "SECOND HOMEWORK/rectangulo.cpp"
         "SECOND HOMEWORK/rectangulo.h"
         "SECOND HOMEWORK/Circulo.cpp"
@@ -22,4 +21,6 @@ add_executable(TareasDatos
         "SECOND HOMEWORK/recta.cpp"
         "SECOND HOMEWORK/recta.h"
         "SECOND HOMEWORK/empleado.cpp"
-        "SECOND HOMEWORK/empleado.h")
+        "SECOND HOMEWORK/empleado.h"
+        "THIRD HOMEWORK/Algoritms_and_symptotic_notation.cpp"
+)
