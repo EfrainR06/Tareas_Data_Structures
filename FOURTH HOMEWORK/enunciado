@@ -1,0 +1,3 @@
+Basado en el archivo mapa_electoral.dat, genere un informe que permita saber el total de habitantes, por distrito, total de habitantes por cantón. por provincia, para cada uno de las provincia tal mapa de elementos
+Reporte con máximo de O(N**2)
+
