@@ -1,0 +1,7 @@
+Enunciado 3 tarea
+Suponga que se cuenta con archivo de historial que contiene el carnet, la materia,la nota obtenida, el periodo lectivo
+, y el año (No se sabe si viene, espacios blancos  o asi). Se cuenta con otro archivo que contiene las materias de las
+diferentes carreras de la U(Escuela, carrera, codigo, creditos), tampoco se nada. Escriba un programa con una optimizacion
+razonable que permita generar un reporte por escuela, carrera, materia, estudiante, nota que para cada estudiante imprima
+su promedio ponderado, que para cada carrera imprima el promedio de promedios ponderados, y para cada escuela el promedio de
+de los promedios de los promedios ponderados.

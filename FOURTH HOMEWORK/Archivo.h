@@ -13,7 +13,7 @@ typedef struct {
 
 }MapaElectoral;
 
-FILE * abrir_archivo(const char* nombre, const char* modo);
+FILE * abrir_archivo(const char* nombre);
 
 MapaElectoral leerRegistro(const char* nombre);
 
@@ -23,6 +23,7 @@ void cerrarMapaElectoral(FILE* archivo);
 
 void imprimirMapaElectoral(const char* mapa);
 
-void organizarMapaElectoral(const char* mapa);
+void reporteTotales(const char* archivo);
+// void organizarMapaElectoral(const char* mapa);
 
 #endif //ARCHIVO_H

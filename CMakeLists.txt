@@ -22,7 +22,8 @@ add_executable(TareasDatos
         "SECOND HOMEWORK/recta.h"
         "SECOND HOMEWORK/empleado.cpp"
         "SECOND HOMEWORK/empleado.h"
-        "THIRD HOMEWORK/Algoritms_and_symptotic_notation.cpp"
+        #"THIRD HOMEWORK/Algoritms_and_symptotic_notation.cpp"
         "FOURTH HOMEWORK/Archivo.cpp"
         "FOURTH HOMEWORK/Archivo.h"
+        "FOURTH HOMEWORK/main4thHomework.cpp"
 )
