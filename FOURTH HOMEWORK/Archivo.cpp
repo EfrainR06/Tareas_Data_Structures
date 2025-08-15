@@ -1,6 +1,7 @@
 //Efrain Retana Segura UNA
 #include "Archivo.h"
 #include <string.h>
+#include <stdio.h>
 
 FILE *abrir_archivo(const char *nombre) {
     char ruta[256];
@@ -66,9 +67,7 @@ void imprimirMapaElectoral(const char *mapa) {
     }
     fclose(f);
 }
-#include <stdio.h>
-#include <string.h>
-#include "Archivo.h"
+
 
 void reporteTotales(const char* archivo) {
     char ruta[256];
