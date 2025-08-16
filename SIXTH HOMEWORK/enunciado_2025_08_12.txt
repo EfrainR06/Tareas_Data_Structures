@@ -1,0 +1,29 @@
+Tarea 15/08/2025
+
+Clase arreglo, main con el tipo de dato,
+clase arreglo{
+private:
+int libre;
+int capacidad;
+int cantidad;
+int * Datos;
+public:
+Constructor;
+void crearArreglo(){usar new}
+void meter(){a[libre++]=v;}
+int sacar(int p){}
+int buscar(int v){}
+void aumentarArreglo(){
+void ordenarArreglo(int t){}
+void liberarMemoria(){}
+void mostrarArreglo(){}
+}
+
+Arreglo_int.cpp
+#include int main() sin la basurilla xd,
+Arreglo a;
+a.meter(5);
+a.mostrarArreglo();
+a.meter(10);
+a.aumentarArreglo();
+a.mostrarArreglo();

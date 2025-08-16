@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.31)
+cmake_minimum_required(VERSION 3.20)
 project(TareasDatos)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -25,5 +25,7 @@ add_executable(TareasDatos
         #"THIRD HOMEWORK/Algoritms_and_symptotic_notation.cpp"
         "FOURTH HOMEWORK/Archivo.cpp"
         "FOURTH HOMEWORK/Archivo.h"
-        "FOURTH HOMEWORK/main4thHomework.cpp"
+        #"FOURTH HOMEWORK/main4thHomework.cpp"
+        "SIXTH HOMEWORK/Arreglo_int.h"
+        "SIXTH HOMEWORK/main_15_08_2025.cpp"
 )
