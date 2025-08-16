@@ -1,0 +1,14 @@
+Tarea:
+Suponga un archivo de M paquetes(paquetes.dat)
+de mensajeria, que se genera cada vez que se recibe, en la oficina
+de correos, los datos que tiene el archivo
+Son: Remitente, Destinatario, Localidad(1,2...7).
+     Direccion de envio, peso, prioridad(1,2,3).
+
+Escriba una aplicación que utilice un arreglo dinamico "de paquetes" <paquetes.h> que
+permita trabajar en memoria principal el archivo.
+Incluya un paquetes.h un nuevo método que ordene los paquetes en orden de prioridad por prioridad
+y genere el archivo Paquetes_ordenados.dat
+
+Utilizar Arreglo.h para implementar paquetes.h considere una complejidad
+máxima O(n ** 2) optimizada y un consumo O(1) maximo.

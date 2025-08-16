@@ -27,5 +27,7 @@ add_executable(TareasDatos
         "FOURTH HOMEWORK/Archivo.h"
         #"FOURTH HOMEWORK/main4thHomework.cpp"
         "SIXTH HOMEWORK/Arreglo_int.h"
-        "SIXTH HOMEWORK/main_15_08_2025.cpp"
+        #"SIXTH HOMEWORK/main_15_08_2025.cpp"
+        "SEVENTH HOMEWORK/paquetes.h"
+        "SEVENTH HOMEWORK/main_Enunciado_Seventh.cpp"
 )
