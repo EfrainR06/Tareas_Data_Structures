@@ -1,0 +1,357 @@
+> Jovillo:
+Buenos días, durante el transcurso del día, voy a estar mandando pasos de solución de la. Practica---tarea, de optimizacion de algoritmo de resolución de caso 1: promedios ponderado de Listas de estudiantes
+
+> Jovillo:
+Favor avisar a todos los que hacen falta de entrar a este grupo,  de forma que lo conviertamos en un chat room de consultas permanentes
+
+> Jovillo:
+TIP 1:
+Programa en C++ para crear un archivo binario con entrada de usuario*
+
+Aquí te dejo un ejemplo de programa en C++ que utiliza fopen, fwrite y fclose para crear un archivo binario con una estructura que contiene un int para el carnet y un char para el nombre, y solicita la entrada de usuario utilizando cin y cout:
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+// Definir la estructura
+struct Registro {
+    int carnet;
+    char nombre[10];
+};
+
+int main() {
+    // Crear el archivo binario
+    FILE *archivo = fopen("registros.bin", "wb");
+    if (archivo == NULL) {
+        cout << "Error al abrir el archivo" << endl;
+        return 1;
+    }
+
+    // Solicitar 25 registros
+    Registro registro;
+    for (int i = 0; i < 25; i++) {
+        cout << "Ingrese el carnet del estudiante " << i + 1 << ": ";
+        cin >> registro.carnet;
+        cin.ignore(); // Ignorar el salto de línea
+        cout << "Ingrese el nombre del estudiante " << i + 1 << ": ";
+        cin.getline(registro.nombre, 10);
+        fwrite(&registro, sizeof(Registro), 1, archivo);
+    }
+
+    // Cerrar el archivo
+    fclose(archivo);
+
+    // Obtener el tamaño del archivo
+    archivo = fopen("registros.bin", "rb");
+    fseek(archivo, 0, SEEK_END);
+    long tamaño = ftell(archivo);
+    fclose(archivo);
+
+    cout << "Archivo creado con éxito" << endl;
+    cout << "Tamaño del archivo: " << tamaño << " bytes" << endl;
+
+    return 0;
+}
+
+Explicación
+
+1. Se define la estructura Registro con un int para el carnet y un char para el nombre.
+2. Se abre el archivo binario en modo escritura ("wb").
+3. Se solicitan 25 registros al usuario utilizando cin y cout.
+4. Se escriben los registros en el archivo utilizando fwrite.
+5. Se cierra el archivo utilizando fclose.
+6. Se abre el archivo en modo lectura ("rb"), se mueve el puntero al final del archivo utilizando fseek y se obtiene el tamaño del archivo utilizando ftell.
+7. Se cierra el archivo y se muestra el tamaño del archivo.
+
+Nota
+
+- Asegúrese de que el archivo se cree en el directorio actual.
+- El tamaño del archivo dependerá de la cantidad de caracteres ingresados en cada nombre.
+- Utiliza cin.ignore() para ignorar el salto de línea después de leer el carnet con cin.
+- Utiliza cin.getline() para leer la línea completa del nombre.
+
+> Jovillo:
+Análisis de complejidad O(n) del programa
+
+El programa tiene una complejidad de O(n) debido a la siguiente razón:
+
+- El programa utiliza un bucle for que se ejecuta 25 veces, lo que significa que la cantidad de operaciones realizadas es directamente proporcional al número de registros que se solicitan.
+- Dentro del bucle, se realizan las siguientes operaciones:
+- Lectura de carnet y nombre utilizando cin (O(1))
+- Escritura de registro en el archivo utilizando fwrite (O(1))
+- Estas operaciones se realizan en un tiempo constante, por lo que no afectan la complejidad general del programa.
+
+Complejidad
+
+La complejidad del programa es O(n), donde n es el número de registros que se solicitan (en este caso, 25). Esto se debe a que el programa realiza una cantidad de operaciones que crece linealmente con el tamaño de la entrada (número de registros).
+
+Desglose de la complejidad
+
+- Inicialización del archivo: O(1)
+- Bucle for para solicitar y escribir registros: O(n)
+- Lectura de carnet y nombre: O(1) x n = O(n)
+- Escritura de registro en el archivo: O(1) x n = O(n)
+- Obtención del tamaño del archivo: O(1)
+
+Complejidad total
+
+La complejidad total del programa es O(n) + O(1) + O(1) = O(n), ya que la complejidad del bucle for domina la complejidad total del programa.
+
+En resumen, el programa tiene una complejidad de O(n) debido al bucle for que se ejecuta para solicitar y escribir registros en el archivo.
+
+> Jovillo:
+TIP 2:
+Programa en C++ para ordenar el archivo utilizando el método de intercambio
+
+El programa en C++ que ordena el archivo creado anteriormente utilizando el método de intercambio
+
+#include <iostream>
+#include <cstdio>
+
+using namespace std;
+
+// Definir la estructura
+struct Registro {
+    int carnet;
+    char nombre[10];
+};
+
+// Función para ordenar el arreglo de registros
+void ordenarRegistros(Registro *registros, int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (registros[i].carnet > registros[j].carnet) {
+                // Intercambiar registros
+                Registro temp = registros[i];
+                registros[i] = registros[j];
+                registros[j] = temp;
+            }
+        }
+    }
+}
+
+int main() {
+    // Abrir el archivo en modo lectura
+    FILE *archivo = fopen("registros.bin", "rb");
+    if (archivo == NULL) {
+        cout << "Error al abrir el archivo" << endl;
+        return 1;
+    }
+
+    // Calcular el tamaño del archivo y el número de registros
+    fseek(archivo, 0, SEEK_END);
+    long tamaño = ftell(archivo);
+    int n = tamaño / sizeof(Registro);
+    rewind(archivo);
+
+    // Leer los registros del archivo en un arreglo
+    Registro *registros = new Registro[n];
+    fread(registros, sizeof(Registro), n, archivo);
+    fclose(archivo);
+
+    // Ordenar los registros
+    ordenarRegistros(registros, n);
+
+    // Guardar los registros ordenados en el archivo
+    archivo = fopen("registros.bin", "wb");
+    fwrite(registros, sizeof(Registro), n, archivo);
+    fclose(archivo);
+
+    delete[] registros;
+
+    cout << "Archivo ordenado con éxito" << endl;
+
+    return 0;
+}
+
+Explicación
+
+1. Se define la estructura Registro con un int para el carnet y un char para el nombre.
+2. Se abre el archivo en modo lectura y se calcula el tamaño del archivo y el número de registros.
+3. Se lee los registros del archivo en un arreglo dinámico.
+4. Se ordena el arreglo de registros utilizando la función ordenarRegistros, que implementa el método de intercambio.
+5. Se guarda los registros ordenados en el archivo, sustituyendo el contenido original.
+
+Nota
+
+- El programa utiliza memoria dinámica para almacenar los registros, por lo que es importante liberar la memoria utilizando delete[] después de utilizarla.
+- El método de intercambio tiene una complejidad de O(n^2), lo que puede ser lento para archivos grandes.
+
+> Jovillo:
+Análisis de complejidad total del programa
+
+El programa tiene varias partes que contribuyen a su complejidad total. A  continuación, se analiza cada parte y se calcula la complejidad total.
+
+Partes del programa
+
+1. Lectura del archivo y cálculo del tamaño: O(1) (operaciones de apertura y cierre del archivo) + O(1) (cálculo del tamaño del archivo)
+2. Lectura de los registros del archivo en un arreglo: O(n) (lectura de n registros)
+3. Ordenamiento de los registros: O(n^2) (método de intercambio)
+4. Guardado de los registros ordenados en el archivo: O(n) (escritura de n registros)
+
+Complejidad total
+
+La complejidad total del programa es la suma de las complejidades de cada parte:
+
+O(1) + O(n) + O(n^2) + O(n) = O(n^2)
+
+La complejidad del ordenamiento (O(n^2)) domina la complejidad total del programa, por lo que la complejidad total es O(n^2).
+
+Resumen
+
+- La complejidad total del programa es O(n^2) debido al método de intercambio utilizado para ordenar los registros.
+- La lectura y escritura de los registros del archivo contribuyen con una complejidad de O(n), pero esta es dominada por la complejidad del ordenamiento.
+
+> Jovillo:
+Con esto y esta forma de resolver el problema, puede aplicarlo a la practica--tarea solicitada
+
+> Karen:
+Hola profe! Veo que en el procedimiento que has enviado, ordenas el archivo y lo vuelves a guardar ya ordenado. Tengo una duda, si por ejemplo yo quisiera leer los datos de Archivo1 y Archivo2, y a ambos los coloco en un array, y ahí empiezo a hacer las comparaciones para unir ambos archivos ordenados, para luego guardarlo, sería incorrecto? Es decir podría hacerlo? O no es Robusto?
+
+> Jovillo:
+Tendría un arreglo que puede ser muy grande,  en este caso los archivos son pequeños
+
+> Jovillo:
+En el caso promedio vamos a ordenar con n^2, pero la estructura n podría ser muy grande, además el costo de espacio pasa a O(2)
+
+> Jovillo:
+Entonces, siempre sería mejor ordenar por aparte cada uno n^2, con O(1) de espacio. Mezclan los dos arreglos generando un o(n) en la mezcla y mantiene el costo de espacio en O(1)
+
+> Jovillo:
+Lo más óptimo es mezclar los dos arreglos y no los dos archivos.... Analicelo
+
+> Jovillo:
+Pensé que habrían más preguntas de solo una de más de 25 alumnos 🤔
+
+> Karen:
+A esto me refería, ponerlos en un arreglo para hacer las comparaciones entonces super bien ya le capté, ahora otra pregunta también sería ideal hacer un struct de lo que hay que devolver? Es decir un struct de carnet, curso y promedio ponderado, o no es necesario.
+
+> Karen:
+?
+
+> Josué Acuña:
+Profe tengo una duda, en el TIP 2, en el main, donde dice " // Calcular el tamaño del archivo y el número de registros" que hace el rewind(archivo) y que hace el rewind en sí?
+
+> Josué Acuña:
+Hola profe tengo una duda ya de tecnicismo, no sé si es eficiente y correcto correr el programa que contiene la creación del archivo del grupo 1 por ejemplo, después correr el programa que ordena los archivos y ya por último correr el programa que hace la mezcla, ya que pues cada cpp tiene su propio main?
+
+> Jovillo:
+Karen.... Debe hacer la nueva estructura del archivo resultante
+
+> Karen:
+perfecto, gracias!
+
+> Jovillo:
+José.... Devuelve el puntero del archivo a la raíz
+
+> Jovillo:
+Del archivo
+
+> Jovillo:
+Correcto, en ese orden josue,  los ordenamientos, los puede hacer primero,  la mezcla después, .... Sin embargo los polinomios suman
+
+> Jovillo:
+Al final es tiempo
+
+> María:
+Entonces serían en sí programas distintos?
+
+> Jovillo:
+Puede ser uno solo,..... También
+
+> Jovillo:
+Es una posibilidad que planteo Josue
+
+> Jovillo:
+Ya sea un o dos, la suma de los polinomios son al final iguales
+
+> Jovillo:
+Pero cuándo un problema es complejo,  analizarlo y dividirlo en pequeños problemas es un buena práctica de programación.
+
+> Karen:
+profe cabe la posibilidad de que se repitan carnet pero con diferente curso y nota? o hacemos de cuenta que eso no pasa?
+
+> Karen:
+por otra parte, usted indicó que la mezcla era con burbuja o se puede usar el merge?
+
+> Jovillo:
+Como es caso 1, usamos burbuja.  Carnet no se repite, recuerde que es caso 1, en un posible escenario más complejo caso 2, si puede ocurrir
+
+> María:
+Hola profe, buenos días.
+Al final, ¿Cómo se requería que se maneje la nota? ¿Un ponderado general o separado por materia?
+
+> Jovillo:
+No entendí
+
+> Jovillo:
+Buenas tardes
+
+> Jovillo:
+Esta es la estructura típica de un curso de estructuras de datos
+
+> Jovillo:
+*Programa del Curso: Estructuras de Datos y Algoritmos en C++*
+
+*Descripción del Curso*
+
+Este curso está diseñado para proporcionar a los estudiantes una comprensión profunda de las estructuras de datos y algoritmos fundamentales en la programación en C++. Los estudiantes aprenderán a diseñar, implementar y analizar estructuras de datos y algoritmos, y a aplicarlos en la resolución de problemas complejos. El curso cubrirá temas como la eficiencia en la programación, el análisis de la complejidad de los algoritmos, las estructuras de datos lineales y no lineales, y los algoritmos de búsqueda y ordenamiento. Además, se explorará la relación entre las estructuras de datos y algoritmos con la implementación de bases de datos, ya que estas estructuras y algoritmos son fundamentales para almacenar y recuperar datos de manera eficiente en bases de datos. También se abordará la importancia de los tipos de datos abstractos (TDA) en la programación, su definición y implementación, ya que estos conceptos son fundamentales para diseñar y desarrollar software escalable. C++ es un lenguaje de programación ampliamente utilizado en la industria del software debido a su flexibilidad y potencia, lo que lo hace ideal para la implementación de estructuras de datos y algoritmos complejos.
+
+*Objetivos del Curso*
+
+- Entender los conceptos básicos de la eficiencia en la programación y su importancia en el desarrollo de software.
+- Aprender a diseñar y implementar estructuras de datos lineales y no lineales en C++.
+- Desarrollar habilidades para analizar y resolver problemas utilizando estructuras de datos y algoritmos en C++.
+- Aplicar las estructuras de datos y algoritmos en la implementación de bases de datos.
+
+*Competencias a Desarrollar*
+
+- *Análisis y Diseño de Algoritmos*: capacidad para analizar y diseñar algoritmos para resolver problemas complejos.
+- *Implementación de Estructuras de Datos*: capacidad para implementar estructuras de datos lineales y no lineales en C++.
+- *Análisis de la Complejidad*: capacidad para analizar la complejidad de los algoritmos y estructuras de datos en términos de tiempo y espacio.
+- *Optimización de Algoritmos*: capacidad para optimizar algoritmos para mejorar su rendimiento.
+- *Resolución de Problemas*: capacidad para resolver problemas complejos utilizando estructuras de datos y algoritmos en C++.
+
+*Contenido del Curso*
+
+1. *Introducción a la Eficiencia en la Programación y Tipos de Datos Abstractos* (4 semanas)
+- Definición y importancia de la eficiencia en la programación.
+- Medición de la eficiencia: tiempo y espacio.
+- Notación Big O.
+- Análisis y búsqueda de eficiencia en la programación.
+- Importancia de los tipos de datos abstractos (TDA) en la programación: definición, implementación y beneficios.
+2. *Estructuras de Datos Lineales en C++* (4 semanas)
+- Arreglos
+- Vectores
+- Listas enlazadas
+- Pilas
+- Colas
+- Análisis y búsqueda de eficiencia en las estructuras de datos lineales.
+3. *Estructuras de Datos No Lineales en C++* (3 semanas)
+- Árboles
+- Grafos
+- Análisis y búsqueda de eficiencia en las estructuras de datos no lineales.
+4. *Algoritmos de Búsqueda y Ordenamiento en C++* (3 semanas)
+- Algoritmos de búsqueda lineal y binaria
+- Algoritmos de ordenamiento: burbuja, selección, inserción, merge sort y quick sort
+- Análisis y búsqueda de eficiencia en los algoritmos de búsqueda y ordenamiento.
+5. *Aplicación en Bases de Datos* (3 semanas)
+- Aplicación de estructuras de datos y algoritmos en la implementación de bases de datos.
+- Optimización del rendimiento de consultas y operaciones de bases de datos.
+
+*Cronograma*
+Semana Contenido
+1-4 Introducción a la Eficiencia en la Programación y Tipos de Datos Abstractos
+5-8 Estructuras de Datos Lineales en C++
+9-11 Estructuras de Datos No Lineales en C++
+12-14 Algoritmos de Búsqueda y Ordenamiento en C++
+
+> Jovillo:
+15-17 Aplicación en Bases de Datos
+*Evaluación*
+Tipo de Evaluación Descripción
+Examen Parcial Evaluación de los contenidos 1, 2 y 3
+Examen Final Evaluación de los contenidos 4 y 5, acumulativo
+Quices Evaluaciones cortas y frecuentes sobre los contenidos del curso
+Tareas Asignaciones prácticas que requieren la implementación de estructuras de datos y algoritmos
