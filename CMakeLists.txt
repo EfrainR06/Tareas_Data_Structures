@@ -31,5 +31,6 @@ add_executable(TareasDatos
         "SEVENTH HOMEWORK/paquetes.h"
         #"SEVENTH HOMEWORK/main_Enunciado_Seventh.cpp"
         "FIFTH HOMEWORK/Archivo_students.h"
-        "FIFTH HOMEWORK/main_homeworkFifth.cpp"
+        #"FIFTH HOMEWORK/main_homeworkFifth.cpp"
+        "IMPORTANT NOTES/important_structure_for_Quiz.cpp"
 )

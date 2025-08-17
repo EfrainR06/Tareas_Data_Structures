@@ -1,4 +1,4 @@
-//Efrain Retana Segura
+//Efrain Retana Segura UNA
 #include "Archivo_students.h"
 
 int main() {
