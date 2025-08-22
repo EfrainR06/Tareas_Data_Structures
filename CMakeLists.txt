@@ -32,5 +32,7 @@ add_executable(TareasDatos
         #"SEVENTH HOMEWORK/main_Enunciado_Seventh.cpp"
         "FIFTH HOMEWORK/Archivo_students.h"
         #"FIFTH HOMEWORK/main_homeworkFifth.cpp"
-        "IMPORTANT NOTES/important_structure_for_Quiz.cpp"
+        #"IMPORTANT NOTES/important_structure_for_Quiz.cpp"
+        "EIGHTH HOMEWORK/PackagesWithVectors.h"
+        "EIGHTH HOMEWORK/main8thHomework.cpp"
 )
