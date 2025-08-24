@@ -34,5 +34,8 @@ add_executable(TareasDatos
         #"FIFTH HOMEWORK/main_homeworkFifth.cpp"
         #"IMPORTANT NOTES/important_structure_for_Quiz.cpp"
         "EIGHTH HOMEWORK/PackagesWithVectors.h"
-        "EIGHTH HOMEWORK/main8thHomework.cpp"
+        #"EIGHTH HOMEWORK/main8thHomework.cpp"
+        "STACK NOTES/PILA.h"
+        "STACK NOTES/Stack_main.cpp"
+        "STACK NOTES/Lista_paquetes.h"
 )
