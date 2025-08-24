@@ -3,6 +3,14 @@ project(TareasDatos)
 
 set(CMAKE_CXX_STANDARD 20)
 
+# FLTK configuration
+set(FLTK_DIR "C:/Users/Usuario/Desktop/fltk-1.4.4")
+set(FLTK_BUILD_DIR "${FLTK_DIR}/build")
+
+include_directories(${FLTK_DIR})
+include_directories(${FLTK_BUILD_DIR})
+link_directories(${FLTK_BUILD_DIR}/lib)
+
 add_executable(TareasDatos
         "SECOND HOMEWORK/punto.cpp"
         "SECOND HOMEWORK/punto.h"
@@ -36,6 +44,17 @@ add_executable(TareasDatos
         "EIGHTH HOMEWORK/PackagesWithVectors.h"
         #"EIGHTH HOMEWORK/main8thHomework.cpp"
         "STACK NOTES/PILA.h"
-        "STACK NOTES/Stack_main.cpp"
+        #"STACK NOTES/Stack_main.cpp"
         "STACK NOTES/Lista_paquetes.h"
+        "NINTH HOMEWORK/TorreHanoi.h"
+        "NINTH HOMEWORK/mainWithFltk.cpp"
+)
+target_link_libraries(TareasDatos
+        fltk
+        fltk_forms
+        fltk_images
+        fltk_gl
+        ws2_32
+        gdiplus
+        comctl32
 )
