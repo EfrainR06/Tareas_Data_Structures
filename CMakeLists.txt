@@ -47,7 +47,8 @@ add_executable(TareasDatos
         #"STACK NOTES/Stack_main.cpp"
         "STACK NOTES/Lista_paquetes.h"
         "NINTH HOMEWORK/TorreHanoi.h"
-        "NINTH HOMEWORK/mainWithFltk.cpp"
+       #"NINTH HOMEWORK/mainWithFltk.cpp"
+        "TENTH HOMEWORK/ColaCircular_main.cpp"
 )
 target_link_libraries(TareasDatos
         fltk

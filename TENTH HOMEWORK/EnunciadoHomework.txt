@@ -1,0 +1,62 @@
+Los 2 son el mismo enunciado debido a limitaciones de tiempo solo se pudo escribir ciertas partes bien
+usa los 2 como referencia
+
+ecsriba un programa en c++ que implemente una cola circular de 10 elementos, al inicio se va a cargar con 4 numeros aleatorios, cada vez que cargue un numero presenta cola, una vez cargado los numeros, entra en un ciclo infinito, en ese ciclo se selecciona la accion, meter en cola y sacar la cola,
+
+ESCRIBA UN PROGRAMA EN C++ QUE IMPLEMENTE UNA COLA CIRCULAR DE 10 ELEMENTOS AL INICIO SE VA A CARGAR CON 4 NUMEROS ALEATORIOS, CADA VES QUE CARGUE UN NUMERO PRESENTA COLA, UNA VES CARGADOS LOS NUMEROS ENTRA EN UN CICLO INFINITO EN ESE CICLO EN FORMA ALEATORIA SE SELECCIONA LA ACCION QUE PUEDE SER METER EN COLA Y SACAR EN COLA
+
+
+
+Diagrama en texto interpretado:
+                +----------------+
+                |   Colas.cpp    |
+                +----------------+
+                         |
+                +----------------+
+                |  Crea cola     |
+                +----------------+
+                         |
+                +----------------+
+                | Ingresa datos  |
+                |  (número cola) |
+                +----------------+
+                         |
+                +----------------+
+                | Selecciona     |
+                |   acción       |
+                +----------------+
+                   /        \
+        (N) Nueva |          | (S) Sacar
+                  v          v
+           +--------------+  +--------------+
+           | Agregar a la |  |  Saca cola   |
+           |     cola     |  +--------------+
+           +--------------+
+                  |
+                  v
+           +----------------+
+           | Muestra datos  |
+           |  (Nueva cola)  |
+           +----------------+
+                         |
+                +----------------+
+                |  Imprime cola  |
+                +----------------+
+                         |
+                +----------------+
+                | Espera 5 seg.  |
+                +----------------+
+                         |
+                +----------------+
+                |    Leer tecla  |
+                +----------------+
+
+
+Cosas que se ven escritas alrededor en la pizarra:
+
+"No toque la tecla ESC"
+
+"getch o getchar" (para leer tecla)
+
+"LEER tecla" (último paso del flujo).
+
